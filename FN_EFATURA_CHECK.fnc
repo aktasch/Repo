@@ -4,6 +4,7 @@ CREATE OR REPLACE FUNCTION Anka.Fn_Efatura_Check(v_Firmid NUMBER)
   v_Count NUMBER;
 BEGIN
 
+
   SELECT COUNT(1)
   INTO   v_Count
   FROM   Anka.Firm_Company
@@ -21,5 +22,6 @@ BEGIN
   END IF;
 
   RETURN RESULT;
-END Fn_Efatura_Check;
+
+  END Fn_Efatura_Check;
 /
