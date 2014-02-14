@@ -1,11 +1,25 @@
-CREATE OR REPLACE FUNCTION ANKA.FN_EFATURA_CHECK (V_FIRMID NUMBER)
-   RETURN NUMBER
-IS
-   Result   NUMBER;
+CREATE OR REPLACE FUNCTION Anka.Fn_Efatura_Check(v_Firmid NUMBER)
+  RETURN NUMBER IS
+  RESULT  NUMBER;
+  v_Count NUMBER;
 BEGIN
-    
-    Select EFATURA_STATUS INTO RESULT from ANKA.FIRM_COMPANY WHERE STATUS = 0 AND FIRM_ID = V_FIRMID;
 
-RETURN RESULT;
-END FN_EFATURA_CHECK;
+  SELECT COUNT(1)
+  INTO   v_Count
+  FROM   Anka.Firm_Company
+  WHERE  Status = 0
+  AND    Firm_Id = v_Firmid;
+
+  IF (v_Count <> 0) THEN
+    SELECT Efatura_Status
+    INTO   RESULT
+    FROM   Anka.Firm_Company
+    WHERE  Status = 0
+    AND    Firm_Id = v_Firmid;
+  ELSE
+    RESULT := 0;
+  END IF;
+
+  RETURN RESULT;
+END Fn_Efatura_Check;
 /
