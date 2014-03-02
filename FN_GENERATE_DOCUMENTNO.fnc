@@ -7,14 +7,6 @@ CREATE OR REPLACE FUNCTION Anka.Fn_Generate_Documentno(v_Prefix     VARCHAR,
   v_Seqno      NUMBER;
   v_Prefixyear NUMBER;
 BEGIN
-  /*
-  1-      Passcard -- SCA
-  2-      Çek --SYA
-  3-      Komisyon (Üye Komisyon, Devir Temlik) --SDK
-  4-      5$ Faturasý  --SD5
-  5-      Üye Ýade  --SDI
-  6-      Tedarikçi Ýade --STI
-  */
   v_Prefixyear := To_Number(To_Char(p_Issue_Date, 'YYYY'));
 
   SELECT COUNT(1)
