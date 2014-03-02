@@ -1,5 +1,4 @@
-CREATE OR REPLACE FUNCTION Anka.Fn_Generate_Documentno(v_Prefix     VARCHAR,
-                                                       p_Issue_Date DATE DEFAULT SYSDATE)
+CREATE OR REPLACE FUNCTION Anka.Fn_Generate_Documentno(v_Prefix     VARCHAR, p_Issue_Date DATE DEFAULT SYSDATE)
   RETURN VARCHAR2 IS
   v_Documentno VARCHAR2(200 CHAR);
   v_Lastseqno  VARCHAR2(200 CHAR);
